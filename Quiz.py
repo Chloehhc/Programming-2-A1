@@ -2,11 +2,15 @@
 # Author: Chloe Hsieh
 # Date: Dec. 4, 2020
 
-# counter
+# Introduction:
+print(f"Hi, thank you for taking this quiz today!")
+print()
+
+# Counter
 counter = 0
 
 # 1. Ask user what is 10+5?
-# a number as an answer
+# (A number as an answer)
 number_answer = int(input(f"1. Please type your answer: 10 + 5 = "))
 
 # Response
@@ -19,7 +23,7 @@ else:
 print()
 
 # 2. What is the last word in British Columbia?
-# text as an answer
+# (Text as an answer)
 last_word_in_bc = (input(f"2. Please fill in the blank: B.C. is short for British ")).lower().strip(".,!")
 
 # Response
@@ -32,7 +36,7 @@ else:
 print()
 
 # 3. When does winter break begin?
-# selction as an answer
+# (Selction as an answer)
 print("3. When does winter break begin?")
 print("a = August | b = September | c = December")
 month = (input(f"Please type the correct letter: ")).lower().strip("!.,")
@@ -58,7 +62,7 @@ else:
     print(f"That's not quite right... it should be calcium.")
 print()
 
-# 5. Ask user what is 15x2?
+# 5. Ask user what 15 x 2 is equal to.
 number_answer = int(input(f"5. Please type your answer: 15 x 2 = "))
 
 # Response
