@@ -21,6 +21,7 @@ if number_answer == "15" or number_answer == "fifteen":
 # Response to incorrect answer
 else:
     print(f"Unfortunately, that is incorrect.")
+    print(f"Your score is {counter}")
 print()
 
 # 2. ASK USER TO FILL IN THE BLANK FOR BRITISH COLUMBIA
@@ -35,6 +36,7 @@ if last_word_in_bc == "columbia":
 # Response to incorrect answer
 else:
     print(f"I'm afraid that is incorrect.")
+    print(f"Your score is {counter}")
 print()
 
 # 3. ASK USER WHEN WINTER BREAK BEGINS
@@ -51,6 +53,7 @@ if month == "c":
 # Response to incorrect answer
 else:
     print(f"Sorry, that is incorrect. Winter break starts in December.")
+    print(f"Your score is {counter}")
 print()
 
 # 4. ASK USER WHAT "Ca" STANDS FOR IN CHEMISTRY
@@ -64,6 +67,7 @@ if element == "calcium":
 # Response to incorrect answer
 else:
     print(f"That's not quite right... it should be calcium.")
+    print(f"Your score is {counter}")
 print()
 
 # 5. ASK USER WHAT 15 x 2 IS EQUAL TO
@@ -77,6 +81,7 @@ if number_answer == "30" or number_answer == "thirty":
 # Response to incorrect answer.
 else:
     print(f"No... sorry but it should be 30.")
+    print(f"Your score is {counter}")
 print()
 
 # END OF QUIZ
