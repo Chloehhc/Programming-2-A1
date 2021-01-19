@@ -17,6 +17,7 @@ WIDTH = 1920
 HEIGHT = 1080
 TITLE = "Sprite Example"
 NUM_JEWELS = 75
+NUM_ENEMIES = 3
 
 
 class Jewel(pygame.sprite.Sprite):
@@ -49,6 +50,7 @@ class Enemy(pygame.sprite.Sprite):
 
         self.image = pygame.image.load("./images/bowser.png")
 
+        self.rect = self.image.get_rect()
 
 def main():
     pygame.init()
@@ -81,8 +83,12 @@ def main():
     all_sprites_group.add(player)
 
     # Enemy creation
-    enemy = Enemy()
-    all_sprites_group.add(enemy)
+    for i in range(NUM_ENEMIES):
+        enemy = Enemy()
+        # Spawn inside visible screen
+        enemy.rect.x = random.randrange(WIDTH - enemy.rect.width)
+        enemy.rect.y = random.randrange(HEIGHT - enemy.rect.height)
+        all_sprites_group.add(enemy)
 
     # ----- MAIN LOOP
     while not done:
