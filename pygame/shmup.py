@@ -5,6 +5,7 @@
 #    - create new sprites IN the main loop (bullets)
 #    - using pygame.mouse a little more comfortably
 
+import random
 import pygame
 
 # ----- CONSTANTS
@@ -13,8 +14,9 @@ WHITE = (255, 255, 255)
 YELLOW = (255, 255, 0)
 SKY_BLUE = (95, 165, 228)
 WIDTH = 720
-HEIGHT = 1280
+HEIGHT = 1000
 TITLE = "SHMUP"
+NUM_ROWS = 8
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -29,6 +31,9 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         """Move the player with the mouse"""
         self.rect.center = pygame.mouse.get_pos()
+
+        if self.rect.top < HEIGHT - 100:
+            self.rect.top = HEIGHT - 100
 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, y_coord):
@@ -96,9 +101,11 @@ def main():
     player_bullet_sprites = pygame.sprite.Group()
 
     #  --- enemies
-    enemy = Enemy(100)
-    all_sprites.add(enemy)
-    enemy_sprites.add(enemy)
+    for i in range(NUM_ROWS):
+        enemy = Enemy(100+i+30)
+        enemy.rect.x = enemy.rect.x + random.choice(-10)
+        all_sprites.add(enemy)
+        enemy_sprites.add(enemy)
 
     #  --- player
     player = Player()
@@ -111,10 +118,11 @@ def main():
             if event.type == pygame.QUIT:
                 done = True
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                # create a bullet
-                bullet = Bullet(player.rect.midtop)
-                all_sprites.add(bullet)
-                player_bullet_sprites.add(bullet)
+                if len(player_bullet_sprites) < 3:
+                    # create a bullet
+                    bullet = Bullet(player.rect.midtop)
+                    all_sprites.add(bullet)
+                    player_bullet_sprites.add(bullet)
 
         # ----- LOGIC
         all_sprites.update()
